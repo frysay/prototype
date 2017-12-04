@@ -1,0 +1,28 @@
+server:
+    port: 8080
+    servlet-path: /prototype
+
+application:
+    host: http://localhost:${server.port}
+    context: ${application.host}${server.servlet-path}
+    key: thisKeyShouldNotBeVersionedButForExampleItShouldEitherBeInTheApplicationOverrideOnTheServerOrPassedToTheJvmAsParamStillOnTheServer
+
+management:
+    security-enabled: false
+    contextPath: /internal
+
+endpoints:
+    enabled: false # disable every endpoint besides the followings
+    info.enabled: true
+    env.enabled: true
+    health.enabled: true
+    
+#info.build: # Enable if git info are needed
+#    artifact: "@project.artifactId@"
+#    name: "@project.name@"
+#    version: "@project.version@"
+#    tag: "@project.scm.tag@"
+#    branch: "@project.branch@" 
+#    revision: "@project.revision@"
+#    feature: 
+#    -       Prototype implementation
